@@ -1,0 +1,63 @@
+$body-overflow-y: auto;
+@import "bulma/bulma";
+
+.modal {
+    display: flex;
+    visibility: hidden;
+
+    .modal-background,
+    .modal-card {
+        transition-property: visibility, opacity;
+        transition-duration: 0.2s;
+        opacity: 0;
+    }
+
+    .modal-card {
+        transition-property: visibility, opacity, transform;
+        transform: scale(0.9);
+    }
+
+    &.is-active {
+        visibility: visible;
+
+        .modal-background,
+        .modal-card {
+            opacity: 1;
+        }
+
+        .modal-card {
+            transform: none;
+        }
+    }
+
+}
+
+.select.is-block > select {
+    width: 100%;
+}
+
+.dropdown-content {
+    border: 1px solid #dbdbdb;
+}
+
+@media (max-width: 768px) {
+    button.is-button-text-hidden-mobile {
+
+        // Sames styles that Bulma applies where the button has no text
+        .icon:first-child:not(:last-child) {
+            margin-right: calc(-0.5em - 1px);
+        }
+
+        > :not(.icon) {
+            display: none
+        }
+    }
+}
+
+
+@media screen and (min-width: 1024px) {
+    .section {
+        // Keep the same padding for big and small screens
+        padding: 3rem 1.5rem;
+    }
+}

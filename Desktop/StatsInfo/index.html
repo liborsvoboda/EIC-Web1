@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="//mrdoob.github.io/stats.js/build/stats.min.js"></script>
+</head>
+<body>
+<script>
+var stats=new Stats();
+document.body.appendChild(stats.dom);
+requestAnimationFrame(function loop(){
+  // stats.begin();
+
+	// monitored code goes here
+  
+  
+  
+  stats.update();
+  
+	// stats.end();
+  requestAnimationFrame(loop)
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Static Web STUDIO</title>
+    <meta name="author" content="Libor Svoboda">
+    <meta name="description" content="Static Web Studio">
+    <meta name="keywords" content="HTML, CSS, JS, Metro, CSS3, Javascript, HTML5, UI, Library, Web, Development, Framework, SPA, Static, Web, Designer, Builder, Studio, Creator">
+
+    <link rel="shortcut icon" href=".favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+
+    <link href="./metro/css/metro-all.min.css" rel="stylesheet" />
+    <link href="./metro/css/metro-icons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./metro/addons/js/console-listener.js" />
+    <link rel="stylesheet" href="./metro/css/site.css" />
+    <link rel="stylesheet" href="./tools/animate/css/animate.css" />
+    <link rel="stylesheet" href="./tools/flexslider/css/flexslider.css" />
+
+    <link href="./metro/css/desktop.css" rel="stylesheet" />
+    <link href="./metro/manage/css/global-classes.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="./tools/highlightjs/styles/default.min.css" />
+    <!-- <link rel="stylesheet" id="portal-color-scheme" href="./metro/css/schemes/sky-net.css" /> -->
+
+    <script type="text/javascript" src="./metro/addons/js/console-listener.js"></script>
+    <script type="text/javascript" src="./metro/js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="./metro/addons/js/js.cookie.min.js"></script>
+    <script type="text/javascript" src="./metro/addons/js/clipboard.min.js"></script>
+    <script type="text/javascript" src="./metro/addons/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="./metro/js/require.js"></script>
+    <script type="text/javascript" src="./metro/js/system.min.js"></script>
+    <script type="text/javascript" src="./tools/flexslider/js/jquery.flexslider-min.js"></script>
+    <!-- <script type="text/javascript" src="./tools/ytplayer/js/jquery.mb.YTPlayer.min.js"></script> -->
+
+
+
+    <script type="text/javascript" src="./metro/js/metro.4.5.2.min.js"></script>
+    <script type="text/javascript" src="./metro/js/desktop.js"></script>
+
+    <script type="text/javascript" src="./metro/manage/js/global-api.js"></script>
+    <script type="text/javascript" src="./metro/manage/js/global-behavior.js"></script>
+    <script type="text/javascript" src="./metro/manage/js/shared-functions.js"></script>
+    <script type="text/javascript" src="./metro/manage/js/global-functions.js"></script>
+    <script type="text/javascript" src="./metro/manage/js/global-storage.js"></script>
+    <script type="text/javascript" src="./metro/manage/js/global-database.js"></script>
+
+    <script type="text/javascript" src="./metro/addons/js/common.js"></script>
+    <script type="text/javascript" src="./metro/addons/js/browser.js"></script>
+    <script type="text/javascript" src="./metro/addons/js/history.js"></script>
+
+
+    <!-- Google Translation -->
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>document.title = (Metro.storage.getItem('WebPagesName', null) == null ? "EDC+ESB IT GroupWare-Solution.Eu" : Metro.storage.getItem('WebPagesName', null)) + (decodeURI(window.location.pathname).split("-")[1] == undefined ? "" : decodeURI(window.location.pathname).split("-")[1])</script>
+
+</head>
+<body id="body" class="m4-cloak">
+
+    <!-- TOOL Panel -->
+    <div id="toolPanel" data-role="bottom-sheet" class="bottom-sheet pos-fixed list-list grid-style opened" style="top: 0px; left: 90%; z-index:10000;min-width: 400px;">
+        <div class="w-100 text-left"> <audio id="radio" class="light bg-transparent" data-role="audio-player" data-src="./metro/media/hotel_california.mp3" data-volume=".5"></audio> </div>
+        <div class="w-100 text-left" style="z-index: 1000000;"><div id="google_translate_element"></div></div>
+        <div class="w-100 d-inline-flex">
+            <div class="w-75 text-left">
+                <input id="UserAutomaticTranslate" type="checkbox" data-role="checkbox" data-cls-caption="fg-cyan text-bold" data-caption="Překládat Automaticky" onchange="UserChangeTranslateSetting">
+            </div><div class="w-25 mt-1 text-right"><button class="button secondary mini" onclick="CancelTranslation()">Zrušit Překlad</button></div>
+        </div>
+        <div class="d-flex w-100">
+            <button class="button shadowed w-25 mt-1" style="background-color: #585b5d; width:50px;" onclick="ChangeSchemeTo('darcula.css')"></button>
+            <button class="button shadowed w-25 mt-1" style="background-color: #AF0015; width:50px;" onclick="ChangeSchemeTo('red-alert.css')"></button>
+            <button class="button shadowed w-25 mt-1" style="background-color: #690012; width:50px;" onclick="ChangeSchemeTo('red-dark.css')"></button>
+            <button class="button shadowed w-25 mt-1" style="background-color: #0CA9F2; width:50px;" onclick="ChangeSchemeTo('sky-net.css')"></button>
+        </div>
+        <div class="c-pointer mif-cancel icon pos-absolute fg-red" style="top:5px;right:5px;" onclick="ShowToolPanel()"></div>
+    </div>
+
+    <!-- Start Panel -->
+    <div id="StartPanel" class="window bg-dark fg-white m4-cloak" style="height: calc(100vh - 40px);display:none;">
+        <div class="container-fluid start-screen h-100">
+            <UL data-role="tabs" data-expand="true" data-tabs-type="text" data-on-tab="" class="bg-dark">
+                <LI class="fg-lightLime bg-dark"><A href="#startpanel_1">Panel Nástrojů 1</A>
+                <LI class="fg-lightLime bg-dark"><A href="#startpanel_2">Panel Nástrojů 2</A> </LI>
+                <LI class="fg-lightLime bg-dark"><A href="#startpanel_3">Webové Stránky</A> </LI>
+            </UL>
+            <div id="startpanel_1" class="tiles-area clear zoom-12"></div><div id="startpanel_2" class="tiles-area clear zoom-11"></div><div id="startpanel_3" class="tiles-area clear"></div>
+        </div>
+
+    </div>
+
+    <!-- Right Panel -->
+    <div data-role="charms" data-position="right" id="charm" class="p-4">
+        <div class="h-100 d-flex flex-column">
+            <div class="charm-top">
+                <div class="text-center m-4">
+                    <span>Static Web Studio</span>
+                </div>
+
+                <div class="charm-notify">
+                    <img class="icon" src="./images/anime-background-images-1.jpg">
+                    <div class="title">About Author</div>
+                    <div class="content">The hornpipe fears with endurance, vandalize the galley until it waves.</div>
+                    <div class="secondary">14:17 &bull; www.facebook.com</div>
+                </div>
+
+                <div class="charm-notify">
+                    <span class="icon mif-info"></span>
+                    <div class="title">You have a news</div>
+                    <div class="content">The hornpipe fears with endurance, vandalize the galley until it waves.</div>
+                </div>
+
+            </div>
+
+            <div class="charm-bottom mt-auto">
+                <div class="d-flex">
+                    <div class="charm-tile">
+                        <span class="icon mif-open-book"></span>
+                        <span class="caption">Panel Dokumentace</span>
+                    </div>
+                    <div class="charm-tile">
+                        <span class="icon mif-wifi-full"></span>
+                        <span class="caption">Knihovna Objektů</span>
+                    </div>
+                    <div class="charm-tile">
+                        <span class="icon mif-cog"></span>
+                        <span class="caption">Preferences</span>
+                    </div>
+                    <div class="charm-tile active">
+                        <span class="icon mif-rocket"></span>
+                        <span class="caption">Fly mode</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Desktop panel -->
+    <div class="desktop">
+        <div class="window-area"></div>
+        <div class="task-bar">
+            <div class="task-bar-section">
+                <button class="task-bar-item" id="start-menu-toggle" onclick="ShowHideStartPanel(false)"><span class="mif-windows"></span></button>
+                <div class="start-menu supertop" data-role="dropdown" data-toggle-element="#start-menu-toggle">
+                    <div class="start-menu-inner h-100">
+                        <div class="explorer">
+                            <ul class="v-menu w-100 bg-brandColor2 fg-white">
+                                <li class=" shadowed"><a onclick="RegisterStaticWebStudio(Metro.storage.getItem('DefaultEditorInput', null))">Static Web Studio</a></li>
+                                <li class=" shadowed"><a onclick="RegisterStaticFrameWindow('Static Tool Creator JS,VUE, React,TS,..','TB','creative-cloud','./tools/tool-creator')">Static Tool Creator JS,VUE,..</a></li>
+                                <li class=" shadowed"><a onclick="RegisterStaticFrameWindow('DB SqLite Editor','DB','database','./tools/sqllite-manager/')">DATABÁZE SqLite Editor</a></li>
+                                <li class=" shadowed"><a onclick="OpenYoutubeVideo()">EDC+ESB Ukázka Vývoje</a></li>
+                                <li class=" shadowed"><a onclick="ShowInfoBox('AboutSystemInfoBox')">Informace O Systému</a></li>
+                                <li class=" shadowed"><a onclick="ShowInfoBox('ContactInfoBox')">Kontakty</a></li>
+                                <li class=" shadowed"><a onclick="ShowHideStartPanel(true)">Start Menu Doc|Tools|View</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- TaskBarIcons -->
+            <div class="task-bar-section tasks"></div>
+            <div class="task-bar-section system-tray ml-auto">
+                <button class="task-bar-item" data-role='hint' data-hint-position='top' data-hint-text='Přeložit do libovolného jazyku' onclick='ShowToolPanel()'>
+                    <span class="c-pointer mif-language mif-2x fg-white ani-hover-heartbeat"></span>
+                </button>
+                <button class="task-bar-item" id="open-charm" onclick="openCharm()"><span class="mif-comment"></span></button>
+                <span style="line-height: 40px;" class="pr-4"><span data-role="clock" class="w-auto fg-white reduce-1" data-show-date="false"></span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- INFOBOX -->
+    <div id="ContactInfoBox" class="info-box" data-role="infobox" data-type="default" data-width="800" data-height="600" style="visibility:hidden;">
+        <span class="button square closer"></span>
+        <div class="info-box-content" style="overflow-y:auto;">
+            <div class="d-flex row ">
+                <div id="ContactInfoPanel" class="d-block m-0 p-0" style="overflow-y: scroll;height:550px;max-height: 550px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Panel -->
+    <div id="AboutSystemInfoBox" class="info-box" data-role="infobox" data-type="default" data-width="800" data-height="650" style="background: #3e372d;">
+        <span class="button square closer shadowed"></span>
+        <div class="info-box-content" style="overflow-y:auto;">
+            <div class="d-flex row ">
+                <iframe id="AboutSystemInfoPanel" src="./about.html" class="d-block m-0 p-0" style="width:100%;overflow-y: scroll;height:620px;max-height: 620px;"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div id="LoginBox" class="info-box" data-role="infobox" data-type="default" data-width="800" data-height="650" style="background: #3e372d;">
+        <span class="button square closer shadowed"></span>
+        <div class="info-box-content" style="overflow-y:auto;">
+            <div class="d-flex row ">
+                <iframe id="LoginPanel" class="d-block m-0 p-0" style="width:100%;overflow-y: scroll;height:620px;max-height: 620px;"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Startup Actions
+        GlobalConsoleLogWindow(false); //Startup Logger if Enabled
+        document.addEventListener("DOMContentLoaded", function (event) {
+            if (Metro.storage.getItem('LoggerEnabled', null) != null && Metro.storage.getItem('LoggerEnabled', null)) { GlobalConsoleLogWindow(false); }
+            if (Metro.storage.getItem('AutoHighlightEnabled', null) != null && Metro.storage.getItem('AutoHighlightEnabled', null)) { document.querySelectorAll('pre code').forEach((block) => { hljs.highlightElement(block); }); }
+            if (Metro.storage.getItem('AutoMermaidEnabled', null) != null && Metro.storage.getItem('AutoMermaidEnabled', null)) { Mermaid(); }
+        });
+
+        $(document).ready(function () {
+            Metro.activity.close(pageLoader);
+            ShowInfoBox('AboutSystemInfoBox'); setTimeout(function () { ShowInfoBox('AboutSystemInfoBox'); }, 10000);
+        });
+    </script>
+
+
+
+</body>
+</html>

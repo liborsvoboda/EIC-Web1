@@ -1,0 +1,45 @@
+{
+  "name": "typeorm-browser-example",
+  "version": "0.0.1",
+  "description": "Example how to use TypeORM with TypeScript in the Broswer.",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "author": {
+    "name": "Umed Khudoiberdiev",
+    "email": "pleerock.me@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/typeorm/browser-example.git"
+  },
+  "bugs": {
+    "url": "https://github.com/typeorm/browser-example/issues"
+  },
+  "tags": [
+    "orm",
+    "typescript",
+    "typescript-orm",
+    "browser-orm",
+    "typeorm-sample",
+    "typeorm-example"
+  ],
+  "devDependencies": {
+    "http-server": "^0.11.0",
+    "ts-loader": "^4.4.1",
+    "typescript": "^2.8.0",
+    "webpack": "^4.12.0",
+    "webpack-cli": "^3.0.8"
+  },
+  "dependencies": {
+    "@types/node": "9.6.0",
+    "react-native-sqlite-storage": "^6.0.1",
+    "reflect-metadata": "0.1.12",
+    "sql.js": "^0.5.0",
+    "typeorm": "^0.2.7",
+    "typeorm-model-generator": "^0.4.6"
+  },
+  "scripts": {
+    "build": "webpack",
+    "start": "http-server -p 3000 -s index.html"
+  }
+}

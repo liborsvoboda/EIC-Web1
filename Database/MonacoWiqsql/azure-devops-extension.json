@@ -1,0 +1,130 @@
+{
+    "manifestVersion": 1,
+    "id": "wiql-editor",
+    "version": "2.0.102",
+    "name": "Wiql Editor",
+    "scopes": [
+        "vso.work",
+        "vso.work_write"
+    ],
+    "public": false,
+    "description": "Search work items with wiql queries.",
+    "publisher": "ms-devlabs",
+    "icons": {
+        "default": "img/logo.png"
+    },
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services.Cloud"
+        },
+        {
+            "id": "Microsoft.TeamFoundation.Server",
+            "version": "[17.0,)"
+        }
+    ],
+    "tags": [
+        "agile",
+        "work Item",
+        "query",
+        "wiql"
+    ],
+    "content": {
+        "details": {
+            "path": "details.md"
+        }
+    },
+    "repository": {
+        "type": "git",
+        "uri": "https://github.com/microsoft/wiql-editor"
+    },
+    "branding": {
+        "color": "rgb(220, 235, 252)",
+        "theme": "light"
+    },
+    "files": [
+        {
+            "path": "img",
+            "addressable": true
+        },
+        {
+            "path": "dist",
+            "addressable": true
+        },
+        {
+            "path": "styles",
+            "addressable": true
+        }
+       
+    ],
+    "categories": [
+        "Azure Boards"
+    ],
+    "contributions": [
+        {
+            "id": "wiql-playground-hub",
+            "type": "ms.vss-web.hub",
+            "description": "Playground for wiql queries",
+            "targets": [
+                "ms.vss-work-web.work-hub-group"
+            ],
+            "properties": {
+                "name": "Wiql Playground",
+                "uri": "dist/playground.html",
+                "icon": "asset://img/logo.png",
+                "registeredObjectId": "wiql-playground-hub-menu" 
+            }
+        },
+        {
+            "id": "query-menu",
+            "type": "ms.vss-web.action",
+            "description": "Edit query in menu",
+            "targets": [
+                "ms.vss-work-web.work-item-query-menu"
+            ],
+            "properties": {
+                 "title": "Edit query wiql",
+                "text": "Edit query wiql",
+                "icon":{
+                    "light": "img/smallDarkThemeLogo.png",
+                    "dark": "img/smallLogo.png"
+                },
+                "group": "actions",
+                "uri": "dist/queryContext.html",
+                "registeredObjectId": "query-menu"
+            }
+        },
+        
+        {
+            "id": "query-results-menu",
+            "type": "ms.vss-web.action",
+            "description": "Edit query in menu",
+            "targets": [
+                "ms.vss-work-web.work-item-query-results-toolbar-menu"
+                
+            ],
+            "properties": {
+                "title": "Edit query wiql",
+                "text": "Edit query wiql",
+                "icon":{
+                    "light": "img/smallDarkThemeLogo.png",
+                    "dark": "img/smallLogo.png"
+                },
+                "group": "actions",
+                "uri": "dist/queryContext.html",
+                "registeredObjectId": "query-results-menu"
+            }
+        },
+       
+        {
+            "id": "contextForm",
+            "type": "ms.vss-web.external-content",
+            "description": "Editor for the given query",
+            "targets": [],
+            "properties": {
+                "uri": "dist/queryEditor.html",
+                "registeredObjectId": "contextForm"
+             
+            }
+        }
+    ]
+}

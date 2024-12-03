@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <script>
+        const PLAYLISTS_KEY = "playlists";
+/*
+        localStorage = {
+            playlists: {
+                "metal": [
+
+                ]
+            }
+        }
+*/
+
+        function __createPlaylists() {
+            console.log(`[__createPlaylists()]: `);
+            
+            const playLists = localStorage.getItem(PLAYLISTS_KEY);
+            if (!!playLists) {
+                return;
+            }
+            localStorage.setItem(PLAYLISTS_KEY, JSON.stringify([]));
+        }
+
+        function getPlaylistByName(playListName) {
+            console.log(`[getPlaylistByName("${playListName}")]: `);
+            
+            const playlists = JSON.parse(localStorage.getItem(PLAYLISTS_KEY));
+            return !!playlists ? playlists[playListName] : undefined;
+        }
+        
+        function addSongToPlaylist(songName, playListName) {
+            console.log(`[addSongToPlaylist("${songName}", "${playListName}")]: `);
+            
+            let targetPlaylist = getPlaylistByName(playListName); //string array
+            
+            if (!targetPlaylist) {
+                __createPlaylists(); // init empty playlists object
+
+                targetPlaylist = [];
+            }
+
+            targetPlaylist = [...targetPlaylist, songName];
+
+            localStorage.setItem(PLAYLISTS_KEY, JSON.stringify({
+                ...JSON.parse(localStorage.getItem(PLAYLISTS_KEY)), 
+                [playListName]: targetPlaylist
+            }));
+        }
+
+        function removeSongFromPlaylist(songNameToRemove, playListName) {
+            console.log(`[removeSongFromPlaylist("${songNameToRemove}", "${playListName}")]: `);
+            
+            let targetPlaylist = getPlaylistByName(playListName); //string array
+            if (!targetPlaylist) {
+                console.log(`Cannot find playlist "${playListName}", nothing is done`);
+                return;
+            }
+
+            localStorage.setItem(PLAYLISTS_KEY, JSON.stringify({
+                ...JSON.parse(localStorage.getItem(PLAYLISTS_KEY)), 
+                [playListName]: targetPlaylist
+                    .filter(songName => songName != songNameToRemove)
+            }));
+        }
+
+        function removePlayListByName(playListNameToRemove) {
+            console.log(`[removePlayListByName("${playListNameToRemove}")]: `);
+
+            let targetPlaylist = getPlaylistByName(playListNameToRemove); //string array
+            if (!targetPlaylist) {
+                console.log(`Cannot find playlist "${playListNameToRemove}", nothing is done`);
+                return;
+            }
+
+            const existingPlaylists = JSON.parse(localStorage.getItem(PLAYLISTS_KEY));
+            
+            localStorage.setItem(PLAYLISTS_KEY, JSON.stringify(
+                Object
+                .keys(existingPlaylists)
+                .reduce((previousObject, currentKey) => 
+                    currentKey == playListNameToRemove ? 
+                    ({...previousObject}) 
+                    :  
+                    ({
+                        ...previousObject, 
+                        [currentKey]: existingPlaylists[currentKey]
+                    }) 
+                , {})));
+        }
+
+        function DEBUG_printLocalStorage() {
+            console.log(`[DEBUG_printLocalStorage()]: localStorage.getItem("${PLAYLISTS_KEY}"):`, JSON.stringify(localStorage.getItem(PLAYLISTS_KEY)))
+        }
+
+        const targetSongName = "DOOM:VS - Earthless";
+        const targetPlayListName = "Metal";
+
+        // reset
+        delete localStorage[PLAYLISTS_KEY];
+
+        DEBUG_printLocalStorage();
+        console.log(`----getPlaylistByName("Metal")`);
+        console.log(getPlaylistByName("Metal"));
+        console.log("\n");
+
+        console.log(`----addSongToPlaylist(targetSongName, targetPlayListName)`);
+        addSongToPlaylist(targetSongName, targetPlayListName);
+        DEBUG_printLocalStorage();
+        console.log("\n");
+
+        
+        console.log(`----removeSongFromPlaylist(targetSongName, "Classical")`);
+        removeSongFromPlaylist(targetSongName, "Classical");
+        DEBUG_printLocalStorage();
+        console.log("\n");
+        
+        console.log(`----removeSongFromPlaylist(targetSongName, targetPlayListName)`);
+        removeSongFromPlaylist(targetSongName, targetPlayListName);
+        DEBUG_printLocalStorage();
+        console.log("\n");
+        
+        console.log(`----removePlayListByName("Classical")`);
+        removePlayListByName("Classical");
+        DEBUG_printLocalStorage();
+        console.log("\n");
+
+        console.log(`----removePlayListByName(targetPlayListName)`);
+        removePlayListByName(targetPlayListName);
+        DEBUG_printLocalStorage();
+    </script>
+</body>
+</html>

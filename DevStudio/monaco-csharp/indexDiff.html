@@ -1,0 +1,45 @@
+﻿<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Monaco Roslyn C# Code Completion Sample</title>
+	<link href="./css/monaco.css" rel="stylesheet">
+	<script src="./js/axios.min.js"></script>
+</head>
+<body>
+	<h2>Kontrola Rozdílů</h2>
+	<!-- <div id="container" style="width: 800px; height: 600px; border: 1px solid grey"></div> -->
+
+	<section id="container"></section>
+	<section class="actions">
+		<label>Inline</label>
+		<input type="checkbox" class="inline-it">
+	</section>
+
+	<script src="./js/csharpLanguageProvider.js"></script>
+	<script src="./js/monaco/min/vs/loader.js"></script>
+	<script>
+		let file1 = "Strana1\ntest";
+		let file2 = "Strana1\naha";
+
+		require.config({ paths: { vs: 'js/monaco/min/vs' } });
+
+		require(['vs/editor/editor.main'], function () {
+
+			registerCsharpProvider();
+
+			let editor = monaco.editor.createDiffEditor(document.getElementById('container'));
+			editor.setModel({
+				original: monaco.editor.createModel(file1, 'javascript'),
+				modified: monaco.editor.createModel(file2, 'javascript'),
+			});
+
+			document.querySelector('.inline-it').addEventListener('change', (e) => {
+				editor.updateOptions({ renderSideBySide: !e.target.checked });
+			});
+
+		});
+	</script>
+</body>
+</html>

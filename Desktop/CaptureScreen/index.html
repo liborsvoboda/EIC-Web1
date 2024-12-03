@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>CaptureScreen</title>
+
+	<script src="./capture.js"></script>
+</head>
+
+<body>
+	<div id="Main">
+		<h1>Capture Screen Video/Audio</h1>
+		<h1>Capture Browser Tab/ FullScreen / Selected Monitor</h1>
+	</div>
+<button id="ImageButton" onclick=EicJSscript.CaptureToImage(); >Capture Screen to Image</button>
+<button id="VideoCameraButton" onclick=EicJSscript.CaptureCameraToVideo(); value="start" >Start Capture Camera to Video</button>
+<button id="VideoScreenButton" onclick=EicJSscript.CaptureScreenToVideo(); value="start" >Start Capture Screen to Video</button>
+<button onclick=EicJSscript.DownloadCapturedImage(); >Download Capture Image</button>
+<button onclick=EicJSscript.DownloadCapturedVideo(); >Download Capture Video</button>
+
+
+	<video id="VideoPlayer" style="width:50%;display:none;" controls autoplay></video>
+	<image id="ImagePreview" style="width:50%;display:none;" />
+
+    <video id="gum" playsinline autoplay muted></video>
+    <video id="recorded" playsinline loop></video>
+
+    <div>
+        <button id="start">Start camera</button>
+        <button id="record" disabled>Start Recording</button>
+        <button id="play" disabled>Play</button>
+        <button id="download" disabled>Download</button>
+    </div>
+	
+	<script>
+	
+
+		
+		
+	</script>
+
+	
+</body>
+	<!-- <script src="./videocapture.js"></script> -->
+</html>

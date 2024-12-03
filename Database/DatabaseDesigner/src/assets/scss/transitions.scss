@@ -1,0 +1,35 @@
+.fade-enter-active,
+.fade-leave-active {
+	transition: opacity 0.2s ease-out;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+	opacity: 0;
+}
+
+.slide-down-enter-active,
+.slide-down-leave-active {
+	transition-property: opacity, transform;
+	transition-duration: 0.3s;
+	transition-timing-function: ease-out;
+}
+
+.slide-down-enter-from,
+.slide-down-leave-to {
+	opacity: 0;
+	transform: translateY(-3rem);
+}
+
+.slide-down-max-height-enter-active,
+.slide-down-max-height-leave-active {
+	transition-property: opacity, max-height;
+	transition-duration: 0.5s;
+	transition-timing-function: ease-in-out;
+}
+
+.slide-down-max-height-enter-from,
+.slide-down-max-height-leave-to {
+	opacity: 0;
+	max-height: 0 !important;
+}

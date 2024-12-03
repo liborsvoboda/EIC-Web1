@@ -1,0 +1,14 @@
+{
+  "en-CA": {
+    "toolbar": {
+      "favorites": "Favourites"
+    },
+    "languageNames": {
+      "ar-001": "Arabic (Modern Standard)",
+      "bn": "Bengali",
+      "mfe": "Mauritian Creole",
+      "nds-NL": "West Low German",
+      "ro-MD": "Moldovan"
+    }
+  }
+}

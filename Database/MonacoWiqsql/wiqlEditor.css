@@ -1,0 +1,68 @@
+#wiql-box .monaco-editor .underline {
+  border-bottom: 2px dotted;
+}
+#wiql-box .monaco-editor .underline.wiql-error {
+  border-bottom-color: rgb(218, 10, 0);
+  border-bottom-color: rgba(var(--palette-accent1, 218, 10, 0), 1);
+}
+#wiql-box .monaco-editor .underline.wiql-warn {
+  border-bottom-color: rgb(248, 168, 0);
+  border-bottom-color: rgba(var(--palette-accent3, 248, 168, 0), 1);
+}
+#wiql-box .monaco-editor .column-color {
+  width: 5px !important;
+}
+#wiql-box .monaco-editor .column-color.wiql-error {
+  background-color: rgb(218, 10, 0);
+  background-color: rgba(var(--palette-accent1, 218, 10, 0), 1);
+}
+#wiql-box .monaco-editor .column-color.wiql-warn {
+  border-bottom-color: rgb(248, 168, 0);
+  border-bottom-color: rgba(var(--palette-accent3, 248, 168, 0), 1);
+}
+
+#query-results {
+  font-size: 15px;
+}
+#query-results .error-message {
+  color: rgb(218, 10, 0);
+  color: rgba(var(--palette-accent1, 218, 10, 0), 1);
+}
+#query-results .table {
+  display: table;
+  width: 50%;
+}
+#query-results .row {
+  display: table-row;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+  color: rgba(var(--palette-neutral-100, 0, 0, 0), 1);
+}
+#query-results .row:hover {
+  text-decoration: underline;
+  background-color: rgb(239, 246, 252);
+  background-color: rgba(var(--palette-primary-tint-40, 239, 246, 252), 1);
+}
+#query-results div.table a.row:nth-child(even):not(:hover) {
+  background-color: rgb(244, 244, 244);
+  background-color: rgba(var(--palette-neutral-4, 244, 244, 244), 1);
+}
+#query-results .cell {
+  display: table-cell;
+  padding-right: 20px;
+}
+
+/*Need to override icon height width attributes from parent frame icon class*/
+.action-label.icon {
+  height: initial;
+  width: initial;
+}
+
+#header-bar .header .wiq-input {
+  display: none;
+}
+#header-bar .header .links {
+  float: right;
+}
+
+/*# sourceMappingURL=wiqlEditor.css.map */

@@ -1,0 +1,19 @@
+# Example: Property modifiers
+
+User
+    # Unique property (!)
+    username! text(30)
+    # Optional property (?)
+    realName? text(50)
+
+Product
+    name text(30)
+    # You can also combine those modifiers
+    # to define an optional unique property:
+    order!? int
+
+Repeating
+    # Repeated modifiers are ignored, so this:
+    several!!!! short
+    # ... is the same as this:
+    once! short

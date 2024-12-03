@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    
+    <script>
+        window.onload = () => {
+        let db;
+
+        // Let us open our database
+        const DBOpenRequest = window.indexedDB.open('toDoList', 5);
+
+        // Register two event handlers to act on the database being opened successfully, or not
+        DBOpenRequest.onerror = (event) => {
+            alert('Error loading database.');
+        };
+
+        DBOpenRequest.onsuccess = (event) => {
+            alert('Database initialised.');
+
+            // Store the result of opening the database in the db variable. This is used a lot below
+            db = DBOpenRequest.result;
+
+            addData();
+
+            // Run the displayData() function to populate the task list with all the to-do list data already in the IndexedDB
+        };
+
+        // This event handles the event whereby a new version of the database needs to be created
+        // Either one has not been created before, or a new version number has been submitted via the
+        // window.indexedDB.open line above
+        //it is only implemented in recent browsers
+        DBOpenRequest.onupgradeneeded = (event) => {
+            db = event.target.result;
+
+            debugger;
+
+            db.onerror = (event) => {
+             //note.appendChild(createListItem('Error loading database.'));
+            };
+
+            // Create an objectStore for this database
+            const objectStore = db.createObjectStore('toDoList', { keyPath: 'id' });
+
+            // Define what data items the objectStore will contain
+            objectStore.createIndex('data', 'data', { unique: false });
+            debugger;
+
+            //note.appendChild(createListItem('Object store created.'));
+        };
+
+        function addData() {
+            // Prevent default, as we don't want the form to submit in the conventional way
+           // e.preventDefault();
+
+           debugger;
+        //     // Stop the form submitting if any values are left empty.
+        //     // This should never happen as there is the required attribute
+        //     if (title.value === '' || hours.value === null || minutes.value === null || day.value === '' || month.value === '' || year.value === null) {
+        //    // note.appendChild(createListItem('Data not submitted — form incomplete.'));
+        //     return;
+        //     }
+            
+            // Grab the values entered into the form fields and store them in an object ready for being inserted into the IndexedDB
+
+            // Open a read/write DB transaction, ready for adding the data
+            const transaction = db.transaction(['toDoList'], 'readwrite');
+
+            // Report on the success of the transaction completing, when everything is done
+            transaction.oncomplete = () => {
+                //note.appendChild(createListItem('Transaction completed: database modification finished.'));
+
+                // Update the display of data to show the newly added item, by running displayData() again.
+                //displayData();
+                debugger;
+            };
+
+            // Handler for any unexpected error
+            transaction.onerror = () => {
+                debugger;
+            //note.appendChild(createListItem(`Transaction not opened due to error: ${transaction.error}`));
+            };
+
+            // Call an object store that's already been added to the database
+            const objectStore = transaction.objectStore('toDoList');
+            console.log(objectStore.indexNames);
+            console.log(objectStore.keyPath);
+            console.log(objectStore.name);
+            console.log(objectStore.transaction);
+            console.log(objectStore.autoIncrement);
+
+            // Make a request to add our newItem object to the object store
+            const objectStoreRequest = objectStore.add({ id: "123", data: "123"});
+
+            objectStoreRequest.onsuccess = (event) => {
+                debugger;
+
+        //     // Report the success of our request
+        //     // (to detect whether it has been succesfully
+        //     // added to the database, you'd look at transaction.oncomplete)
+        //     //note.appendChild(createListItem('Request successful.'));
+
+        //     // Clear the form, ready for adding the next entry
+        //     title.value = '';
+        //     hours.value = null;
+        //     minutes.value = null;
+        //    // day.value = 01;
+        //     month.value = 'January';
+        //     year.value = 2020;
+            };
+        };
+    }
+
+    </script>
+</body>
+</html>

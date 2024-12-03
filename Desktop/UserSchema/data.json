@@ -1,0 +1,10 @@
+[
+    { "data": { "id": "I" }, "group": "nodes" },
+    { "data": { "id": "i" }, "group": "nodes" },
+    { "data": { "id": "io" }, "group": "nodes" },
+    { "data": { "id": "iii" }, "group": "nodes" },
+    { "data": { "id": "II" }, "group": "nodes" },
+
+    { "data": { "id": "I_iii", "source": "I", "target": "iii", "group": "popularity_5" }, "group": "edges" },
+    { "data": { "id": "I_II", "source": "I", "target": "II", "group": "popularity_4" }, "group": "edges" }
+]

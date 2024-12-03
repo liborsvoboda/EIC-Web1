@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Static WEB STUDIO</title>
+    <meta name="author" content="Libor Svoboda">
+    <meta name="description" content="Static Web Studio">
+    <meta name="keywords" content="HTML, CSS, JS, Metro, CSS3, Javascript, HTML5, UI, Library, Web, Development, Framework, SPA, Static, Web, Designer, Builder, Studio, Creator">
+
+    <link rel="shortcut icon" href=".favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+
+    <link href="./metro/css/metro-all.min.css" rel="stylesheet" />
+    <link href="./metro/css/metro-icons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./tools/animate/css/animate.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="./tools/flexslider/css/flexslider.css" />
+    <link rel="stylesheet" href="./tools/highlightjs/styles/default.min.css" />
+    <style>
+        #disk-info, #ram-info, #cpu-info {
+            display: block;
+            position: absolute;
+            font-size: 32px;
+            color: #c4122f;
+            width: 200px;
+            white-space: nowrap;
+        }
+
+        #disk-info {
+            text-align: right;
+            top: 54px;
+            left: 50%;
+            transform: translateX(-370px);
+        }
+
+        #cpu-info {
+            text-align: left;
+            top: 54px;
+            left: 50%;
+            transform: translateX(180px);
+        }
+
+        #ram-info {
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-10px);
+            text-align: center;
+        }
+
+
+
+        body {
+            background: #3e372d;
+        }
+    </style>
+    <script>
+        var rules = [
+            { on: { 'top': [16], 'left': [4], 'right': [1] } },
+            { on: { 'top': [12, 15], 'left': [3, 8], 'right': [2, 5] } },
+            { on: { 'top': [11], 'left': [7], 'right': [6] } },
+            { on: { 'top': [8, 14], 'left': [2, 12], 'right': [9, 3] } },
+            { on: { 'top': [10, 7], 'left': [6, 11], 'right': [10, 7] } },
+            { on: { 'top': [13, 4], 'left': [1, 16], 'right': [13, 4] } },
+            { on: { 'top': [9, 6, 3], 'left': [5, 10, 15], 'right': [14, 11, 8] } },
+            { on: { 'top': [1, 2, 5], 'left': [9, 13, 14], 'right': [15, 12, 16] } }
+        ];
+
+        var information = [
+            { disk: "4 Html", ram: "256 JavaScript", cpu: "0,25 Css" },
+            { disk: "8 Html", ram: "512 JavaScript", cpu: "0,5 Css" },
+            { disk: "16 Html", ram: "1024 JavaScript", cpu: "1,0 Css" },
+            { disk: "32 Html", ram: "2048 JavaScript", cpu: "2,0 Css" },
+            { disk: "64 Html", ram: "4096 JavaScript", cpu: "4,0 Css" },
+            { disk: "128 Html", ram: "8192 JavaScript", cpu: "8,0 Css" },
+            { disk: "256 Html", ram: "16384 JavaScript", cpu: "16,0 Css" },
+            { disk: "512 Html", ram: "32768 JavaScript", cpu: "32,0 Css" }
+        ];
+
+        function cubeTick(index, element) {
+            var info = information[index];
+            var target = ['disk', 'ram', 'cpu'];
+
+            $.each(target, function () {
+                $("#" + this + "-info").html(info[this]);
+            });
+        }
+
+    </script>
+    <script type="text/javascript" src="./metro/js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="./tools/flexslider/js/jquery.flexslider-min.js"></script>
+    <script type="text/javascript" src="./metro/js/metro.4.5.2.min.js"></script>
+
+    <script type="text/javascript" src="./metro/manage/js/global-behavior.js"></script>
+</head>
+<body class="m4-cloak">
+    <div class="text-center">
+        <div class="hero-bg 1bg-brand-secondary add-neb">
+            <div class="container">
+                <h1 class="p-2 animate__animated animate__slideInDown fg-lightBlue" style="font-weight:bold;--animate-duration: 3s;"> STATIC</h1>
+                <p></p>
+                <div class="p-4 pos-relative" style="zoom:0.8;">
+                    <div id="demo-cube" data-role="cube" data-rules="rules" data-on-tick="cubeTick" data-show-axis="true" data-axis-style="arrow"></div>
+                    <div id="disk-info"></div>
+                    <div id="ram-info"></div>
+                    <div id="cpu-info"></div>
+                </div>
+                <p class="pt-2 fg-lightBlue"><a class="fg-lightBlue" style="font-size: 20px;" href="https://GroupWare-Solution.Eu">GroupWare-Solution.Eu</a> <a class="fg-lightBlue" style="font-size: 20px;" href="https://KlikneteZde.Cz">KlikneteZde.Cz</a></p>
+                <h1 id="title" class="pt-2 animate__animated animate__slideInUp fg-darkAmber" style="font-weight:bold;--animate-duration: 3s;font-size: 70px;">WEB STUDIO</h1>
+
+               <!--  <button class="button info outline shadowed" onclick=ShowInfoBox('AboutSystemInfoBox')>Vstoupit Do Systému</button> -->
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById("title").addEventListener('animationend', () => {
+            $("#title").removeClass("animate__slideInUp");
+            $("#title").addClass("animate__heartBeat");
+            $("#title").addClass("animate__infinite");
+
+        });
+
+        var flashRules = [
+            { on: { 'top': [16], 'left': [4], 'right': [1] } },
+            { on: { 'top': [12, 15], 'left': [3, 8], 'right': [2, 5] } },
+            { on: { 'top': [11], 'left': [7], 'right': [6] } },
+            { on: { 'top': [8, 14], 'left': [2, 12], 'right': [9, 3] } },
+            { on: { 'top': [10, 7], 'left': [6, 11], 'right': [10, 7] } },
+            { on: { 'top': [13, 4], 'left': [1, 16], 'right': [13, 4] } },
+            { on: { 'top': [9, 6, 3], 'left': [5, 10, 15], 'right': [14, 11, 8] } },
+            { on: { 'top': [1, 2, 5], 'left': [9, 13, 14], 'right': [15, 12, 16] } }
+        ];
+
+        var flashRules2 = [
+            { on: { 'top': [1, 2, 5], 'left': [9, 13, 14], 'right': [15, 12, 16] } },
+            { on: { 'top': [9, 6, 3], 'left': [5, 10, 15], 'right': [14, 11, 8] } },
+            { on: { 'top': [13, 4], 'left': [1, 16], 'right': [13, 4] } },
+            { on: { 'top': [10, 7], 'left': [6, 11], 'right': [10, 7] } },
+            { on: { 'top': [8, 14], 'left': [2, 12], 'right': [9, 3] } },
+            { on: { 'top': [11], 'left': [7], 'right': [6] } },
+            { on: { 'top': [12, 15], 'left': [3, 8], 'right': [2, 5] } },
+            { on: { 'top': [16], 'left': [4], 'right': [1] } }
+        ];
+
+        var flashRules3 = [
+            { on: { 'top': [16], 'left': [4], 'right': [1] } },
+            { on: { 'top': [15, 12], 'left': [3, 8], 'right': [5, 2] } },
+            { on: { 'top': [14, 8], 'left': [2, 12], 'right': [9, 3] } },
+            { on: { 'top': [13, 4], 'left': [1, 16], 'right': [13, 4] } },
+            { on: { 'top': [1], 'left': [13], 'right': [16] } },
+            { on: { 'top': [6], 'left': [10], 'right': [11] } },
+            { on: { 'top': [11], 'left': [7], 'right': [6] } },
+            { on: { 'top': [10, 7], 'left': [6, 11], 'right': [10, 7] } },
+            { on: { 'top': [9, 3], 'left': [5, 15], 'right': [14, 8] } },
+            { on: { 'top': [5, 2], 'left': [9, 14], 'right': [15, 12] } }
+        ];
+
+        var flashRules4 = [
+            {
+                on: { 'top': [16], 'left': [4], 'right': [1] },//1
+                off: { 'top': [13, 4], 'left': [1, 16], 'right': [13, 4] }, //6
+            },
+            {
+                on: { 'top': [12, 15], 'left': [3, 8], 'right': [2, 5] },//2
+                off: { 'top': [9, 6, 3], 'left': [5, 10, 15], 'right': [14, 11, 8] },//7
+            },
+            {
+                on: { 'top': [11], 'left': [7], 'right': [6] },//3
+                off: { 'top': [1, 2, 5], 'left': [9, 13, 14], 'right': [15, 12, 16] },//8
+            },
+            {
+                on: { 'top': [8, 14], 'left': [2, 12], 'right': [9, 3] },//4
+                off: { 'top': [16], 'left': [4], 'right': [1] }, //1
+            },
+            {
+                on: { 'top': [10, 7], 'left': [6, 11], 'right': [10, 7] },//5
+                off: { 'top': [12, 15], 'left': [3, 8], 'right': [2, 5] }, //2
+            },
+            {
+                on: { 'top': [13, 4], 'left': [1, 16], 'right': [13, 4] },//6
+                off: { 'top': [11], 'left': [7], 'right': [6] }, //3
+            },
+            {
+                on: { 'top': [9, 6, 3], 'left': [5, 10, 15], 'right': [14, 11, 8] },//7
+                off: { 'top': [8, 14], 'left': [2, 12], 'right': [9, 3] }, //4
+            },
+            {
+                on: { 'top': [1, 2, 5], 'left': [9, 13, 14], 'right': [15, 12, 16] },//8
+                off: { 'top': [10, 7], 'left': [6, 11], 'right': [10, 7] }, //5
+            }
+        ];
+    </script>
+</body>
+</html>

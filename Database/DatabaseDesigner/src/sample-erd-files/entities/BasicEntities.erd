@@ -1,0 +1,18 @@
+# Example: Basic entities
+
+User
+    username text(50)
+    password text(128)
+    email text(100)
+    active bool
+
+Task
+    description text(200)
+    done bool
+
+EntityWithoutProperties
+
+EntityWithCustomIdProperty
+    # You can customize the name of the entity ID by defining it explicitly.
+    # However, only one property with "identity" type is allowed.
+    customIdProperty identity

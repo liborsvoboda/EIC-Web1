@@ -1,0 +1,23 @@
+{
+  "de-AT": {
+    "intro": {
+      "graph": {
+        "countrycode": "at"
+      }
+    },
+    "languageNames": {
+      "ar-001": "modernes Hocharabisch",
+      "car": "karibische Sprache",
+      "chb": "Chibcha-Sprache",
+      "del": "Delawarisch",
+      "fur": "Friulanisch",
+      "haw": "Hawaiianisch",
+      "hmn": "Miao-Sprache",
+      "mus": "Muskogee-Sprache",
+      "niu": "Niueanisch",
+      "pag": "Pangasinensisch",
+      "sh": "Serbokroatisch",
+      "szl": "Schlesisch"
+    }
+  }
+}

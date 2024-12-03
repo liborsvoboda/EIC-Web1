@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <title>EIC&ESB Developer Portal</title>
+    <meta name="renderer" content="webkit" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="author" content="Libor Svoboda">
+    <meta name="description" content="EIC&ESB Developer Portal">
+    <meta name="keywords" content="HTML, CSS, JS, Metro, CSS3, Javascript, HTML5, UI, Library, Web, Development, Framework, SPA, Static, Web, Designer, Builder, Studio, Creator">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+
+    <!-- PRIMARY -->
+    <link rel="stylesheet" href="./metro/css/metro-all.css" />
+    <link rel="stylesheet" href="./metro/css/metro-icons.css" />
+
+    <!-- PRIMARY -->
+    <script type="text/javascript" src="./metro/js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="./metro/js/metro.4.5.2.min.js"></script>
+
+
+    <!-- EXTENSIONS -->
+  <!--   <script type="text/javascript" src="./addons/js/desktop.js"></script> -->
+    <script type="text/javascript" src="./addons/js/js.cookie.min.js"></script>
+    <script type="text/javascript" src="./addons/js/clipboard.min.js"></script>
+    <script type="text/javascript" src="./addons/js/common.js"></script>
+    <script type="text/javascript" src="./addons/js/browser.js"></script>
+    <script type="text/javascript" src="./addons/js/history.js"></script>
+
+    <!-- Code Editor -->
+    <link rel="stylesheet" href="./index.03f3867e.css">
+    <link rel="stylesheet" href="./mirrorsharp.css">
+    <link rel="stylesheet" href="./app.css">
+
+
+</head>
+<body>
+    <nav class="bg-lightBrown p-1 title" style="height:30px;">
+        Inteligentní C# Vývojář:
+        <ul>
+            <li><a href="#language=CSharp">C#</a></li>
+            <li><a href="#language=CSharp&mode=script">C# (Script)</a></li>
+        </ul>
+
+        <div class="d-inline-flex text-right pl-5">
+            <button class="button dark pl-2" style="max-height: 22px !important;" onclick="$('#editor-container> div').addClass('mirrorsharp--theme-dark')">Tmavý Mód</button>
+            <button class="button light pl-2" style="max-height: 22px !important;" onclick="$('#editor-container> div').removeClass('mirrorsharp--theme-dark')">Světlý Mód</button>
+        </div>
+    </nav>
+    <div id="editor-container"></div>
+    <div id="editor-container"></div>
+    <script type="module" src="./index.b6205d47.js"></script>
+</body>
+</html>

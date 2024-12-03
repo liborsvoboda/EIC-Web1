@@ -1,0 +1,26 @@
+# Example: Pokémon
+
+Trainer
+    name text(30)
+    birthdate? date
+
+Trainer <->* Pokemon
+
+Pokemon
+    name! text(20)
+    pokedexNumber! int
+    legendary bool
+
+Pokemon *->* Move
+
+Pokemon *-> Region origin
+
+Move
+    name text(30)
+    attackStat short
+    defenseStat short
+    specialAttackStat short
+    specialDefenseStat short
+
+Region # Kanto, Johto, Hoenn...
+    name text(30)

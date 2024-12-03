@@ -1,0 +1,83 @@
+[
+    {
+        "selector": "node",
+        "style": {
+            "label": "data(id)",
+            "text-valign": "center"
+        }
+    },
+    {
+        "selector": "edge",
+        "style": {
+            "curve-style": "bezier",
+            "target-arrow-shape": "triangle"
+        }
+    },
+    {
+        "selector": ".eh-handle",
+        "style": {
+            "background-color": "pink",
+            "width": 12,
+            "height": 12,
+            "shape": "ellipse",
+            "overlay-opacity": 0,
+            "border-width": 12,
+            "border-opacity": 0
+        }
+    },
+
+    {
+        "selector": ".eh-hover",
+        "style": {
+            "background-color": "pink"
+        }
+    },
+
+    {
+        "selector": ".eh-source",
+        "style": {
+            "border-width": 2,
+            "border-color": "pink"
+        }
+    },
+
+    {
+        "selector": ".eh-target",
+        "style": {
+            "border-width": 2,
+            "border-color": "pink"
+        }
+    },
+
+    {
+        "selector": ".eh-preview, .eh-ghost-edge",
+        "style": {
+            "background-color": "pink",
+            "line-color": "pink",
+            "target-arrow-color": "pink",
+            "source-arrow-color": "pink"
+        }
+    },
+    {
+        "selector": ".eh-ghost-edge.eh-preview-active",
+        "style": {
+            "opacity": 0
+        }
+    },
+    {
+        "selector": "edge[group=\"popularity_5\"]",
+        "style": {
+          "line-color": "red",
+          "target-arrow-color": "red"
+        }
+    },
+    {
+        "selector": "edge[group=\"popularity_4\"]",
+        "style": {
+          "line-color": "orange",
+          "target-arrow-color": "orange"
+        }
+    }
+]
+
+

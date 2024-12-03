@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+    <script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
+	
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+	<script src="https://cytoscape.org/cytoscape.js-popper/cytoscape-popper.js"></script>
+	<script src="https://unpkg.com/tippy.js@6"></script>
+
+    <!-- for testing with local version of cytoscape.js -->
+    <!--<script src="../cytoscape.js/build/cytoscape.js"></script>-->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.10/lodash.js"></script>
+    <script src="https://cytoscape.org/cytoscape.js-edgehandles/cytoscape-edgehandles.js"></script>
+
+    <style>
+        body {
+            font-family: helvetica neue, helvetica, liberation sans, arial, sans-serif;
+            font-size: 14px;
+        }
+
+        #cy {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            z-index: 999;
+        }
+
+        #panel {
+            font-size: 1em;
+            font-weight: bold;
+        }
+
+        #buttons {
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 99999;
+            margin: 1em;
+        }
+        
+        /* makes sticky faster; disable if you want animated tippies */
+		.tippy-popper {
+			transition: none !important;
+		}
+    </style>
+    <script src="./app.js"></script>
+</head>
+
+<body>
+    <div id="panel">
+        This is a panel
+    </div>
+    <div id="cy"></div>
+
+    <div id="buttons">
+      <button id="start">Start on selected</button>
+      <button id="draw-on">Draw mode on</button>
+      <button id="draw-off">Draw mode off</button>
+    </div>
+</body>
+
+</html>

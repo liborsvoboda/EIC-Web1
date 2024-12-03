@@ -1,0 +1,34 @@
+{
+  "name": "erdiagram-playground",
+  "private": true,
+  "version": "1.3.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 3000",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.5.1",
+    "@nestorrente/erdiagram": "^1.3.0",
+    "ace-builds": "^1.32.2",
+    "bulma": "^0.9.4",
+    "jszip": "^3.10.1",
+    "lodash.debounce": "^4.0.8",
+    "nomnoml": "^1.6.2",
+    "prismjs": "^1.29.0",
+    "resize-observer-polyfill": "^1.5.1",
+    "true-json": "^1.0.3",
+    "vue": "^3.3.11"
+  },
+  "devDependencies": {
+    "@types/lodash.debounce": "^4.0.9",
+    "@types/prismjs": "^1.26.3",
+    "@vitejs/plugin-vue": "^4.5.2",
+    "sass": "^1.69.5",
+    "typescript": "^5.2.2",
+    "url": "^0.11.3",
+    "vite": "^5.0.8",
+    "vue-tsc": "^1.8.25"
+  }
+}

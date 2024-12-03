@@ -1,0 +1,69 @@
+# Example: Relationship's cardinality
+
+# Supported cardinalities:
+#
+# ?: zero or one
+# 1: one (default)
+# *: many
+#
+# When no cardinality is specified,
+# the default cardinality (1) is used.
+
+
+# Some example entities without properties:
+User
+Role
+Profile
+ChatRoom
+Message
+
+
+# One-to-one relationship:
+
+User <-> Profile
+
+	# Each user has one profile.
+	# Each profile belongs to one user.
+
+	# Can also be writen as:
+	# User 1<->1 Profile
+
+
+# One-to-many relationships:
+
+ChatRoom <->* Message
+
+	# Each chat room has many messages.
+	# Each message belongs to one chat room.
+
+User <->* Message
+
+	# Each user can write many messages.
+	# Each message is written by one user.
+
+
+# Many-to-one relationships:
+
+User *<-> Role
+
+	# Each user has a role.
+	# Many users may have the same role.
+
+	# Can also be writen as:
+	# User *<->1 Role
+
+Message reply *<->? Message sourceMessage
+
+	# Each message can be a reply to another message (but it's not mandatory).
+	# Each message may have many replies.
+
+	# Note: the previous relationship uses aliases.
+	# Check the aliases example to learn more about them.
+
+
+# Many-to-many relationship:
+
+ChatRoom *<->* User
+
+	# Each chat room has many users.
+	# Each user can access to many chat rooms.

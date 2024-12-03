@@ -1,0 +1,16 @@
+{
+  "name": "lokijs.dev",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "serv": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joe Minichino <joe.minichino@gmail.com> (http://github.com/techfort)",
+  "license": "BSD",
+  "dependencies": {
+    "finalhandler": "^0.3.2",
+    "serve-static": "^1.7.1"
+  }
+}
